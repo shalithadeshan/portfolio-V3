@@ -2,10 +2,7 @@ import myImg from "../assets/images/team-3.jpg";
 
 const AboutMe = () => {
   return (
-    <div
-      className="container content-center grid mt-5"
-      style={{ height: "90vh" }}
-    >
+    <div className="container content-center grid" style={{ height: "90vh" }}>
       <div className="flex flex-row">
         <p className="text-light-color">
           <span className="font-monospace text-secondary-color">01</span> About
@@ -15,12 +12,22 @@ const AboutMe = () => {
       </div>
       <div className="grid justify-items-center md:grid-cols-2 gap-10 mt-10">
         <div className="order-2 md:order-1">
-          <p className="font-nunito text-darkest-color text-xl md:text-2xl text-justify">
+          <p className="font-nunito text-darkest-color text-xl md:text-xl text-justify">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta vel
             natus repellendus amet nostrum alias in quibusdam sed qui iste,
             nulla, distinctio eveniet tenetur laudantium culpa excepturi facilis
             eos itaque?
           </p>
+          <div className="text-darkest-color mt-5">
+            <ul className="grid grid-cols-2 list-inside">
+              <li className="list-disc">JavaScript</li>
+              <li className="list-disc">TypeScript</li>
+              <li className="list-disc">TypeScript</li>
+              <li className="list-disc">JavaScript</li>
+              <li className="list-disc">TypeScript</li>
+              <li className="list-disc">TypeScript</li>
+            </ul>
+          </div>
         </div>
         <div className="order-1 md:order-2">
           <img
