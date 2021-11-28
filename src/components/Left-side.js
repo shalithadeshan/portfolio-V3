@@ -1,13 +1,13 @@
-const LeftSide = () => {
+const RightSide = () => {
   return (
     <div className="ml-10">
       <div
         className="content-end grid flex-col justify-items-center"
         style={{ height: "85vh", position: "fixed" }}
       >
-        <div className="font-nunito hover:text-secondary-color transform hover:-translate-y-2  duration-500 text-dark-color">
+        <div className="font-nunito  transform hover:-translate-y-2  duration-500 ">
           <a href="mailto:shalithad8520jayasekara@gmail.com">
-            <i class="las la-envelope text-3xl"></i>
+            <i class="las la-envelope text-3xl text-dark-color hover:text-secondary-color"></i>
           </a>
         </div>
         <div className="border-l-2 mt-4 py-14  border-secondary-color"></div>
@@ -16,4 +16,4 @@ const LeftSide = () => {
   );
 };
 
-export default LeftSide;
+export default RightSide;

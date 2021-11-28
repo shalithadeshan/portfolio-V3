@@ -1,3 +1,22 @@
 body-bg {
     height: 100vh;
 }
+
+.ant-tabs-ink-bar {
+    /* height: 5px; */
+    background: #ffcb14 !important;
+    color: #989898 !important;
+}
+
+.ant-tabs-tab {
+    color: #989898 !important;
+}
+
+.ant-tabs-tab-active {
+    color: #ffcb14 !important;
+}
+
+
+/* a {
+    color: #E7E7E7 !important;
+} */

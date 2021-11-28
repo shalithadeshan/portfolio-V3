@@ -1,4 +1,5 @@
 import "./App.css";
+import "antd/dist/antd.css";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";

@@ -13,19 +13,22 @@ const AboutMe = () => {
       <div className="grid justify-items-center md:grid-cols-2 gap-10 mt-10">
         <div className="order-2 md:order-1">
           <p className="font-nunito text-darkest-color text-xl md:text-xl text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta vel
-            natus repellendus amet nostrum alias in quibusdam sed qui iste,
-            nulla, distinctio eveniet tenetur laudantium culpa excepturi facilis
-            eos itaque?
+            A self-motivated Front-end software developer with a year of
+            experience in web application development following agile
+            methodologies and best practices, and in meeting quality
+            expectations and deadlines in line with guidelines. Enjoys
+            collaborating working under the guidance of Tech Leads. Currently
+            learning on Back-end development using Node.js.
           </p>
           <div className="text-darkest-color mt-5">
             <ul className="grid grid-cols-2 list-inside">
+              <li className="list-disc">HTML</li>
+              <li className="list-disc">CSS</li>
               <li className="list-disc">JavaScript</li>
               <li className="list-disc">TypeScript</li>
-              <li className="list-disc">TypeScript</li>
-              <li className="list-disc">JavaScript</li>
-              <li className="list-disc">TypeScript</li>
-              <li className="list-disc">TypeScript</li>
+              <li className="list-disc">Angular</li>
+              <li className="list-disc">React</li>
+              <li className="list-disc">Ionic Angular</li>
             </ul>
           </div>
         </div>
