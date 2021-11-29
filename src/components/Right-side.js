@@ -1,23 +1,19 @@
-const LeftSide = () => {
+const RightSide = () => {
   return (
     <div className="ml-10">
       <div
-        className="content-end flex-col grid justify-items-center text-3xl"
+        className="content-end grid flex-col justify-items-center"
         style={{ height: "85vh", position: "fixed" }}
       >
-        <a href="https://www.linkedin.com/in/shalitha-jayasekara-194215180/">
-          <i class="lab la-linkedin text-dark-color hover:text-secondary-color transform hover:-translate-y-2  duration-500"></i>
-        </a>
-        <a href="https://github.com/shalithadeshan">
-          <i class="lab la-github text-dark-color hover:text-secondary-color transform hover:-translate-y-2  duration-500 mt-3"></i>
-        </a>
-        <a href="https://twitter.com/ShalithaDeshsn">
-          <i class="lab la-twitter text-dark-color hover:text-secondary-color transform hover:-translate-y-2  duration-500 mt-3"></i>
-        </a>
-        <div className="border-l-2  mt-3 py-14  border-secondary-color"></div>
+        <div className="font-nunito  transform hover:-translate-y-2  duration-500 ">
+          <a href="mailto:shalithad8520jayasekara@gmail.com">
+            <i className="las la-envelope text-3xl text-dark-color hover:text-secondary-color"></i>
+          </a>
+        </div>
+        <div className="border-l-2 mt-4 py-14  border-secondary-color"></div>
       </div>
     </div>
   );
 };
 
-export default LeftSide;
+export default RightSide;

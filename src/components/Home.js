@@ -7,12 +7,12 @@ export default function Home() {
         Shalitha Jayasekara.
       </p>
       <div className="flex flex-row">
-        <p className="font-nunito text-dark-color text-3xl md:text-6xl">
+        <p className="font-nunito text-dark-color text-2xl md:text-6xl">
           I build
         </p>
         &nbsp; &nbsp;
         <Typist
-          className="font-nunito text-dark-color text-3xl md:text-6xl"
+          className="font-nunito text-dark-color text-2xl md:text-6xl"
           sentences={["Web Applications", "Mobile Applications"]}
           deletingSpeed={80}
           loop={true}
