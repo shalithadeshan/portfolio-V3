@@ -23,7 +23,7 @@ const Experience = () => {
   }
 
   return (
-    <div className="container content-center grid" style={{ height: "90vh" }}>
+    <div className="container content-center grid" style={{ height: "100vh" }}>
       <div className="flex flex-row">
         <p className="text-light-color">
           <span className="font-monospace text-secondary-color">02</span>{" "}

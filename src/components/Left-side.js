@@ -3,7 +3,7 @@ const LeftSide = () => {
     <div className="ml-10">
       <div
         className="content-end flex-col grid justify-items-center text-3xl"
-        style={{ height: "85vh", position: "fixed" }}
+        style={{ height: "100vh", position: "fixed" }}
       >
         <a href="https://www.linkedin.com/in/shalitha-jayasekara-194215180/">
           <i className="lab la-linkedin text-dark-color hover:text-secondary-color transform hover:-translate-y-2  duration-500"></i>

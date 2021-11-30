@@ -3,7 +3,7 @@ const RightSide = () => {
     <div className="ml-10">
       <div
         className="content-end grid flex-col justify-items-center"
-        style={{ height: "85vh", position: "fixed" }}
+        style={{ height: "100vh", position: "fixed" }}
       >
         <div className="font-nunito  transform hover:-translate-y-2  duration-500 ">
           <a href="mailto:shalithad8520jayasekara@gmail.com">

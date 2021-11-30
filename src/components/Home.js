@@ -1,7 +1,10 @@
 import Typist from "react-text-typist";
 export default function Home() {
   return (
-    <div className="container content-center grid" style={{ height: "80vh" }}>
+    <div
+      className="container content-center grid gap-0"
+      style={{ height: "100vh" }}
+    >
       <p className="text-secondary-color font-cursive text-4xl">Hello, I am</p>
       <p className="font-nunito font-bold text-light-color text-4xl md:text-7xl">
         Shalitha Jayasekara.

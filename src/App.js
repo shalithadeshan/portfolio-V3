@@ -1,6 +1,5 @@
 import "./App.css";
 import "antd/dist/antd.css";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import AboutMe from "./components/About";
@@ -14,16 +13,15 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="body-bg bg-primary-color">
-      {/* <Router> */}
+    <div className="body-bg bg-primary-color ">
       <div className="invisible md:visible">
         <Header />
       </div>
       <div className="grid md:grid-cols-12">
         <div className="invisible md:visible">
-          <RightSide />
+          <LeftSide />
         </div>
-        <div className="md:col-span-10 px-10 overflow-y-auto">
+        <div className="md:col-span-10 px-10 overflow-y-auto bg-primary-color">
           <div id="home">
             <Home />
           </div>
@@ -44,13 +42,14 @@ function App() {
           </div>
         </div>
         <div className="invisible md:visible">
-          <LeftSide />
+          <RightSide />
         </div>
       </div>
-      <div className="visible md:invisible">
-        <MobileTabs />
+      <div className="flex flex-wrap content-end ">
+        <div className="visible md:invisible fixed inset-x-0 bottom-0 w-full z-50">
+          <MobileTabs />
+        </div>
       </div>
-      {/* </Router> */}
     </div>
   );
 }
