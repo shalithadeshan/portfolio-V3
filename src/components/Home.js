@@ -26,6 +26,14 @@ export default function Home() {
           I am a software engineer specializing in front end.
         </p>
       </div>
+      <div className="flex justify-start mt-5 visible md:invisible">
+        <div
+          className="rounded-md border-2 w-max border-secondary-color py-2 px-10 text-secondary-color hover:bg-secondary-color hover:text-black"
+          style={{ cursor: "pointer" }}
+        >
+          Resume
+        </div>
+      </div>
     </div>
   );
 }

@@ -14,12 +14,12 @@ const Contact = () => {
         </p>
         <div className="flex justify-center">
           <p className="font text-dark-color text-lg md:w-96">
-            I am currently looking for new opportunity. My inbox is always open.
-            Please drop a message whether you have a question or just want to
-            say Hi.
+            I am currently looking for new opportunity in front-end or back-end.
+            My inbox is always open. Please drop a message if you have a
+            question or just want to say Hi.
           </p>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-5">
           <a href="mailto:shalithad8520jayasekara@gmail.com">
             <div
               className="rounded-md border-2 w-max border-secondary-color py-2 px-5 text-secondary-color hover:bg-secondary-color hover:text-black"

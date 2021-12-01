@@ -32,8 +32,8 @@ const Work = () => {
             <div className="lg:w-3/6"></div>
             <div className="lg:w-3/6 md:bg-primary-color-100 md:shadow-md md:py-5 md:px-5 rounded-sm">
               <p className="text-dark-color md:text-right  text-lg">
-                A web application that shows the latest updates of the COVID-19
-                in Sri Lanka.
+                A web application that shows the latest state of the COVID-19
+                stuation in Sri Lanka.
               </p>
             </div>
           </div>
@@ -44,8 +44,11 @@ const Work = () => {
           </div>
           <div className="flex md:justify-end">
             <a href="https://github.com/shalithadeshan/covid-19_dashboard.git">
-              <i className="lab la-github text-dark-color hover:text-secondary-color text-3xl"></i>
+              <i className="lab la-github text-dark-color hover:text-secondary-color text-3xl mr-2"></i>
             </a>
+            {/* <a href="/">
+              <i className="las la-external-link-alt text-dark-color hover:text-secondary-color text-3xl"></i>
+            </a> */}
           </div>
         </div>
       </div>

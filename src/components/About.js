@@ -13,11 +13,11 @@ const AboutMe = () => {
       <div className="grid justify-items-center md:grid-cols-2 gap-10 mt-10">
         <div className="order-2 md:order-1">
           <p className="font-nunito text-darkest-color text-xl md:text-xl text-justify">
-            A self-motivated Front-end software developer with a year of
+            A self-motivated Front-end software developer with a one year
             experience in web application development following agile
             methodologies and best practices, and in meeting quality
             expectations and deadlines in line with guidelines. Enjoys
-            collaborating working under the guidance of Tech Leads. Currently
+            collaborative working under the guidance of Tech Leads. Currently
             learning on Back-end development using Node.js.
           </p>
           <div className="text-darkest-color mt-5">

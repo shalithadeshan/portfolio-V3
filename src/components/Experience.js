@@ -57,7 +57,7 @@ const Experience = () => {
                   TypeScript, Angular.
                 </li>
                 <li className="list-disc lg:w-3/4 text-lg text-justify">
-                  Gain a lots of experience working with team.
+                  Gain a lot of experience working with the team.
                 </li>
               </ul>
             </div>
