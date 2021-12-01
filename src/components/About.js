@@ -22,13 +22,13 @@ const AboutMe = () => {
           </p>
           <div className="text-darkest-color mt-5">
             <ul className="grid grid-cols-2 list-inside">
-              <li className="list-disc">HTML</li>
-              <li className="list-disc">CSS</li>
-              <li className="list-disc">JavaScript</li>
-              <li className="list-disc">TypeScript</li>
-              <li className="list-disc">Angular</li>
-              <li className="list-disc">React</li>
-              <li className="list-disc">Ionic Angular</li>
+              <li className="list-disc">HTML.</li>
+              <li className="list-disc">CSS.</li>
+              <li className="list-disc">JavaScript.</li>
+              <li className="list-disc">TypeScript.</li>
+              <li className="list-disc">Angular.</li>
+              <li className="list-disc">React.</li>
+              <li className="list-disc">Ionic Angular.</li>
             </ul>
           </div>
         </div>
