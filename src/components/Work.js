@@ -46,9 +46,9 @@ const Work = () => {
             <a href="https://github.com/shalithadeshan/covid-19_dashboard.git">
               <i className="lab la-github text-dark-color hover:text-secondary-color text-3xl mr-2"></i>
             </a>
-            {/* <a href="/">
+            <a href="https://shalithadeshan.github.io/covid-19_dashboard/">
               <i className="las la-external-link-alt text-dark-color hover:text-secondary-color text-3xl"></i>
-            </a> */}
+            </a>
           </div>
         </div>
       </div>
