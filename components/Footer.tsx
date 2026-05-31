@@ -2,10 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-type GitHubInfo = {
-  stars: number | null;
-  forks: number | null;
-};
+type GitHubInfo = { stars: number | null; forks: number | null };
 
 export default function Footer() {
   const [githubInfo, setGitHubInfo] = useState<GitHubInfo>({
@@ -24,26 +21,25 @@ export default function Footer() {
   }, []);
 
   return (
-    <div>
-      <div className="flex justify-center font-monospace mb-10 md:mb-0 cursor-pointer">
-        <a href="https://github.com/shalithadeshan/portfolio-V3.git">
-          <div>
-            <p className="text-dark-color hover:text-secondary-color">
-              Built by Shalitha Jayasekara
-            </p>
-            <div className="flex justify-center mb-20 md:mb-10 text-dark-color hover:text-secondary-color">
-              <span>
-                <i className="las la-star"></i>
-                <span>{githubInfo.stars}</span>&nbsp;
-              </span>
-              <span>
-                <i className="las la-code-branch"></i>
-                <span>{githubInfo.forks}</span>&nbsp;
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
+    <footer className="border-t border-line py-10 text-center">
+      <a
+        href="https://github.com/shalithadeshan/portfolio-V3.git"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block font-mono text-sm text-muted transition-colors hover:text-accent"
+      >
+        <p>Designed &amp; built by Shalitha Jayasekara</p>
+        <div className="mt-2 flex justify-center gap-4 text-xs">
+          <span className="inline-flex items-center gap-1">
+            <i className="las la-star" />
+            {githubInfo.stars ?? "—"}
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <i className="las la-code-branch" />
+            {githubInfo.forks ?? "—"}
+          </span>
+        </div>
+      </a>
+    </footer>
   );
 }

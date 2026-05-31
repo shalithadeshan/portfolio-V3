@@ -1,57 +1,137 @@
 import Image from "next/image";
-import covidDashboard from "@/assets/covid-19-dashboard.png";
+import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
+
+type ProjectLink = { label: string; icon: string; href: string };
+
+type Project = {
+  title: string;
+  company: string;
+  description: string;
+  tech: string[];
+  image: string;
+  links?: ProjectLink[];
+};
+
+const PROJECTS: Project[] = [
+  {
+    title: "Vehicle Bidding Management System",
+    company: "Cube360",
+    description:
+      "An automation-focused auction platform that synchronises 85,000+ auction items daily, enabling real-time bidding with predefined auction-paper translations.",
+    tech: ["Angular", ".NET", "SignalR", "SQL Server"],
+    image: "/work/vehicle-bidding.png",
+  },
+  {
+    title: "Pharmacare ERP",
+    company: "Cube360",
+    description:
+      "A pharmacy ERP system with tuned data-retrieval algorithms (40–50% faster operations) and a Docker + Heroku CI/CD pipeline that cut update discrepancies by 40%+.",
+    tech: ["Angular", ".NET", "Docker", "Heroku"],
+    image: "/work/pharmacare.png",
+  },
+  {
+    title: "Fuel Station Subscription Platform",
+    company: "Cube360",
+    description:
+      "A subscription-centered fuel station application backed by a clean-architecture API, giving operators tools that streamline daily workflows.",
+    tech: ["Angular", "ASP.NET Core", "PostgreSQL"],
+    image: "/work/fuel-station.png",
+  },
+  {
+    title: "RMS Admin Application",
+    company: "Cube360",
+    description:
+      "An Angular-workspace admin frontend for a Restaurant Management System that cut administrative workload by 30+ hours monthly across operations.",
+    tech: ["Angular", "Angular Material", "NgRx"],
+    image: "/work/rms-admin.png",
+  },
+  {
+    title: "Sri Lanka Covid-19 Dashboard",
+    company: "Personal Project",
+    description:
+      "A web application that shows the latest state of the COVID-19 situation in Sri Lanka.",
+    tech: ["React", "Covid-19 API", "Bootstrap"],
+    image: "/work/covid-19-dashboard.png",
+    links: [
+      {
+        label: "GitHub",
+        icon: "lab la-github",
+        href: "https://github.com/shalithadeshan/covid-19_dashboard.git",
+      },
+      {
+        label: "Live",
+        icon: "las la-external-link-alt",
+        href: "https://shalithadeshan.github.io/covid-19_dashboard/",
+      },
+    ],
+  },
+];
 
 export default function Work() {
   return (
-    <div className="container content-center grid h-screen">
-      <div className="flex flex-row">
-        <p className="text-light-color">
-          <span className="font-monospace text-secondary-color">03</span> Work
-        </p>
-        <div className="border-t-2 ml-3 mt-3 px-14 inline-block border-secondary-color"></div>
-      </div>
-      <div className="flex w-full mt-10 relative">
-        <div className="w-full">
-          <Image
-            src={covidDashboard}
-            alt="Sri Lanka Covid-19 Dashboard"
-            className="rounded-sm w-full h-96 object-cover opacity-10 md:opacity-100"
-          />
-        </div>
-        <div className="p-5 md:p-0 md:w-full absolute z-[1]">
-          <div>
-            <p className="text-secondary-color md:text-right font-monospace">
-              Featured Project
-            </p>
-          </div>
-          <div>
-            <p className="text-light-color text-xl font-black font-nunito md:text-right">
-              Sri Lanka - Covid-19 Dashboard
-            </p>
-          </div>
-          <div className="flex">
-            <div className="lg:w-3/6"></div>
-            <div className="lg:w-3/6 md:bg-primary-color-100 md:shadow-md md:py-5 md:px-5 rounded-sm">
-              <p className="text-dark-color md:text-right text-lg">
-                A web application that shows the latest state of the COVID-19
-                situation in Sri Lanka.
-              </p>
-            </div>
-          </div>
-          <div>
-            <p className="text-dark-color font-monospace md:text-right mt-5">
-              React &nbsp; Covid-19 API &nbsp; Bootstrap
-            </p>
-          </div>
-          <div className="flex md:justify-end">
-            <a href="https://github.com/shalithadeshan/covid-19_dashboard.git">
-              <i className="lab la-github text-dark-color hover:text-secondary-color text-3xl mr-2"></i>
-            </a>
-            <a href="https://shalithadeshan.github.io/covid-19_dashboard/">
-              <i className="las la-external-link-alt text-dark-color hover:text-secondary-color text-3xl"></i>
-            </a>
-          </div>
-        </div>
+    <div className="min-h-screen py-28 md:py-36">
+      <Reveal>
+        <SectionHeading index="03" title="Work" />
+      </Reveal>
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {PROJECTS.map((project, i) => (
+          <Reveal key={project.title} delay={(i % 2) * 100}>
+            <article className="glass card-hover group flex h-full flex-col overflow-hidden rounded-3xl">
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/70 to-transparent" />
+              </div>
+
+              <div className="flex grow flex-col p-6">
+                <p className="font-mono text-xs uppercase tracking-widest text-accent">
+                  {project.company}
+                </p>
+                <h3 className="mt-1.5 font-display text-xl font-bold">
+                  {project.title}
+                </h3>
+                <p className="mt-3 grow text-[15px] leading-relaxed text-muted">
+                  {project.description}
+                </p>
+
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] text-muted"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+
+                {project.links && (
+                  <div className="mt-5 flex gap-4 text-2xl">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.label}
+                        className="text-muted transition-colors hover:text-accent"
+                      >
+                        <i className={link.icon}></i>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </div>
   );

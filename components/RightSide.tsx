@@ -1,17 +1,13 @@
 export default function RightSide() {
   return (
-    <div className="ml-10">
-      <div
-        className="content-end grid flex-col justify-items-center"
-        style={{ height: "100vh", position: "fixed" }}
+    <div className="fixed bottom-0 right-8 z-40 hidden flex-col items-center gap-6 lg:flex">
+      <a
+        href="mailto:shalithad8520jayasekara@gmail.com"
+        className="font-mono text-xs tracking-widest text-muted transition-colors duration-300 hover:text-accent [writing-mode:vertical-rl]"
       >
-        <div className="font-nunito transform hover:-translate-y-2 duration-500">
-          <a href="mailto:shalithad8520jayasekara@gmail.com">
-            <i className="las la-envelope text-3xl text-dark-color hover:text-secondary-color"></i>
-          </a>
-        </div>
-        <div className="border-l-2 mt-4 py-14 border-secondary-color"></div>
-      </div>
+        shalithad8520jayasekara@gmail.com
+      </a>
+      <span className="h-24 w-px bg-line" />
     </div>
   );
 }

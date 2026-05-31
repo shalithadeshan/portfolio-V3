@@ -1,108 +1,126 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState, type ReactNode } from "react";
+import { useState } from "react";
+import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
-type Tab = { key: string; label: string; content: ReactNode };
+type Role = { title: string; period: string; bullets: string[] };
+type Company = { key: string; label: string; roles: Role[] };
 
-const TABS: Tab[] = [
+const COMPANIES: Company[] = [
+  {
+    key: "cube360",
+    label: "Cube360",
+    roles: [
+      {
+        title: "Full Stack Software Engineer",
+        period: "Feb 2023 — Present",
+        bullets: [
+          "Orchestrated the design of an admin application frontend using an Angular workspace, streamlining management tasks within the RMS to cut administrative workload by 30+ hours monthly across restaurant operations.",
+          "Spearheaded daily-workflow refinements via a newly designed, subscription-centered fuel station application, prioritising improvements based on direct end-user feedback throughout development.",
+          "Architected an efficient backend API for subscription management following clean architecture guidelines, giving fuel station operators tools that elevated daily workflow efficiency and overall business performance.",
+        ],
+      },
+      {
+        title: "Associate Software Engineer",
+        period: "Jan 2022 — Jan 2023",
+        bullets: [
+          "Developed key features within an automation-focused Vehicle Bidding Management System, synchronising thousands of auction listings seamlessly to allow real-time updates during events.",
+          "Coordinated between clients and developers to define specifications for a comprehensive web application, implementing streamlined Angular + .NET backend APIs that improved system performance by 30%.",
+          "Automated critical tasks and optimised user experience, synchronising 85,000+ auction items daily and enabling efficient bidding with predefined auction-paper translations.",
+        ],
+      },
+      {
+        title: "Software Engineer Trainee",
+        period: "Jan 2022 — Apr 2023",
+        bullets: [
+          "Played an instrumental role in building the 'Pharmacare' ERP system, executing coding solutions that improved daily operation speeds by 40–50%.",
+          "Enhanced data-retrieval processes by tuning existing algorithms, yielding a 40–50% improvement in daily operations for pharmacy management systems.",
+          "Designed and implemented a CI/CD process via Docker integration with Heroku, achieving a 40%+ reduction in operational discrepancies during software updates.",
+        ],
+      },
+    ],
+  },
   {
     key: "vertex",
     label: "Vertex",
-    content: (
-      <>
-        <div>
-          <p className="text-light-color text-2xl">
-            Trainee Front-end developer{" "}
-            <span>
-              <Link href="/" className="text-secondary-color">
-                @Vertex
-              </Link>
-            </span>
-          </p>
-          <p className="text-dark-color">March 2021 - September 2021</p>
-        </div>
-        <div className="text-darkest-color ml-5 mt-5 lg:pl-5">
-          <ul className="list-outside">
-            <li className="list-disc lg:w-3/4 text-lg text-justify">
-              Worked with a team of 2 front-end and 2 back-end developers to
-              build a hotel and restaurant management system.
-            </li>
-            <li className="list-disc lg:w-3/4 text-lg text-justify">
-              Work with a variety of different languages, platforms, frameworks,
-              and content management systems such as JavaScript, TypeScript,
-              Angular.
-            </li>
-            <li className="list-disc lg:w-3/4 text-lg text-justify">
-              Gain a lot of experience working with the team.
-            </li>
-          </ul>
-        </div>
-      </>
-    ),
+    roles: [
+      {
+        title: "Software Engineer Intern",
+        period: "Jan 2021 — Dec 2021",
+        bullets: [
+          "Developed and optimised Hotel (HMS) and Restaurant (RMS) Management Systems, achieving a 30–35% reduction in daily operational tasks and a 45% productivity boost across two restaurant locations.",
+          "Designed modular Angular components that reduced redundancy through reusable elements, saving roughly 60 hours per quarter during development.",
+          "Authored 20+ user-story drafts for core functional requirements, strengthening team collaboration and improving sprint completion rates.",
+        ],
+      },
+    ],
   },
 ];
 
 export default function Experience() {
-  const [activeKey, setActiveKey] = useState(TABS[0].key);
-  // Mirror the old antd tabPosition: vertical tabs on desktop, horizontal on mobile.
-  const [vertical, setVertical] = useState(true);
-
-  useEffect(() => {
-    const onResize = () => setVertical(window.innerWidth >= 600);
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  const active = TABS.find((t) => t.key === activeKey) ?? TABS[0];
+  const [activeKey, setActiveKey] = useState(COMPANIES[0].key);
+  const active = COMPANIES.find((c) => c.key === activeKey) ?? COMPANIES[0];
 
   return (
-    <div className="container content-center grid" style={{ height: "100vh" }}>
-      <div className="flex flex-row">
-        <p className="text-light-color">
-          <span className="font-monospace text-secondary-color">02</span>{" "}
-          Experience
-        </p>
-        <div className="border-t-2 ml-3 mt-3 px-14 inline-block border-secondary-color"></div>
-      </div>
-      <div className="lg:px-20 mt-10">
-        <div className={vertical ? "flex flex-row" : "flex flex-col"}>
-          <ul
-            className={
-              vertical
-                ? "flex flex-col border-l-2 border-darkest-color/40 mr-8"
-                : "flex flex-row border-b-2 border-darkest-color/40 mb-5"
-            }
-          >
-            {TABS.map((tab) => {
-              const isActive = tab.key === activeKey;
-              return (
-                <li key={tab.key}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveKey(tab.key)}
-                    className={`px-4 py-2 font-monospace cursor-pointer transition-colors ${
-                      isActive
-                        ? "text-secondary-color"
-                        : "text-dark-color hover:text-secondary-color"
-                    } ${
-                      isActive && vertical ? "border-l-2 -ml-0.5 border-secondary-color" : ""
-                    } ${
-                      isActive && !vertical
-                        ? "border-b-2 -mb-0.5 border-secondary-color"
-                        : ""
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="flex-1">{active.content}</div>
+    <div className="min-h-screen py-28 md:py-36">
+      <Reveal>
+        <SectionHeading index="02" title="Experience" />
+      </Reveal>
+
+      <Reveal delay={100}>
+        <div className="glass rounded-3xl p-6 sm:p-9">
+          <div className="flex flex-col gap-8 md:flex-row">
+            {/* Company tabs — horizontal on mobile, vertical on desktop */}
+            <ul className="flex shrink-0 gap-2 overflow-x-auto border-line md:flex-col md:gap-1 md:border-l md:pl-0">
+              {COMPANIES.map((company) => {
+                const isActive = company.key === activeKey;
+                return (
+                  <li key={company.key}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveKey(company.key)}
+                      className={`w-full whitespace-nowrap px-4 py-2.5 text-left font-mono text-sm transition-colors md:-ml-px md:border-l-2 ${
+                        isActive
+                          ? "text-accent md:border-accent"
+                          : "text-muted hover:text-fg md:border-transparent"
+                      }`}
+                    >
+                      {company.label}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Roles for the active company */}
+            <div className="flex-1 space-y-9">
+              {active.roles.map((role) => (
+                <div key={role.title} className="relative pl-6">
+                  <span className="absolute left-0 top-2 h-2.5 w-2.5 -translate-x-[3px] rounded-full bg-accent shadow-[0_0_12px_var(--accent-glow)]" />
+                  <span className="absolute left-[2px] top-2 h-full w-px bg-line" />
+                  <h3 className="text-xl font-semibold text-fg">
+                    {role.title}{" "}
+                    <span className="text-accent">@ {active.label}</span>
+                  </h3>
+                  <p className="font-mono text-xs text-muted">{role.period}</p>
+                  <ul className="mt-3 space-y-2">
+                    {role.bullets.map((bullet, i) => (
+                      <li
+                        key={i}
+                        className="flex gap-3 text-[15px] leading-relaxed text-muted"
+                      >
+                        <i className="las la-angle-right mt-1.5 text-xs text-accent" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }

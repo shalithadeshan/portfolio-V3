@@ -1,21 +1,37 @@
+const socials = [
+  {
+    href: "https://www.linkedin.com/in/shalitha-jayasekara-194215180/",
+    icon: "lab la-linkedin",
+    label: "LinkedIn",
+  },
+  {
+    href: "https://github.com/shalithadeshan",
+    icon: "lab la-github",
+    label: "GitHub",
+  },
+  {
+    href: "https://twitter.com/ShalithaDeshsn",
+    icon: "lab la-twitter",
+    label: "Twitter",
+  },
+];
+
 export default function LeftSide() {
   return (
-    <div className="ml-10">
-      <div
-        className="content-end flex-col grid justify-items-center text-3xl"
-        style={{ height: "100vh", position: "fixed" }}
-      >
-        <a href="https://www.linkedin.com/in/shalitha-jayasekara-194215180/">
-          <i className="lab la-linkedin text-dark-color hover:text-secondary-color transform hover:-translate-y-2 duration-500"></i>
+    <div className="fixed bottom-0 left-8 z-40 hidden flex-col items-center gap-5 lg:flex">
+      {socials.map((social) => (
+        <a
+          key={social.label}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.label}
+          className="text-xl text-muted transition-all duration-300 hover:-translate-y-1 hover:text-accent"
+        >
+          <i className={social.icon}></i>
         </a>
-        <a href="https://github.com/shalithadeshan">
-          <i className="lab la-github text-dark-color hover:text-secondary-color transform hover:-translate-y-2 duration-500 mt-3"></i>
-        </a>
-        <a href="https://twitter.com/ShalithaDeshsn">
-          <i className="lab la-twitter text-dark-color hover:text-secondary-color transform hover:-translate-y-2 duration-500 mt-3"></i>
-        </a>
-        <div className="border-l-2 mt-3 py-14 border-secondary-color"></div>
-      </div>
+      ))}
+      <span className="mt-2 h-24 w-px bg-line" />
     </div>
   );
 }
