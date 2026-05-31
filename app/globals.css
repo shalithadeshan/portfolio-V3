@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (driven by next-themes via the `dark` class on <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ----------------------------------------------------------------------------
+   Design tokens. Semantic Tailwind colors map to CSS variables that flip
+   between the light (:root) and dark (.dark) palettes below, so utilities like
+   bg-bg / text-fg / text-accent / border-line stay theme-aware.
+---------------------------------------------------------------------------- */
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-line: var(--border);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --animate-aurora-1: aurora-1 22s ease-in-out infinite;
+  --animate-aurora-2: aurora-2 26s ease-in-out infinite;
+  --animate-aurora-3: aurora-3 30s ease-in-out infinite;
+}
+
+:root {
+  --bg: #f2f0e8;
+  --bg-2: #e9e6db;
+  --fg: #15171c;
+  --muted: #545c69;
+  --accent: #b45309;
+  --accent-2: #0f766e;
+  --accent-glow: #f59e0b;
+  --border: rgba(21, 23, 28, 0.1);
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(21, 23, 28, 0.08);
+  --glass-blur: 16px;
+
+  --aurora-amber: rgba(245, 158, 11, 0.55);
+  --aurora-teal: rgba(20, 184, 166, 0.4);
+  --aurora-rose: rgba(244, 63, 94, 0.35);
+  --aurora-opacity: 0.7;
+}
+
+.dark {
+  --bg: #060910;
+  --bg-2: #0a0f1c;
+  --fg: #e9edf5;
+  --muted: #93a1b6;
+  --accent: #fbbf24;
+  --accent-2: #2dd4bf;
+  --accent-glow: #f59e0b;
+  --border: rgba(255, 255, 255, 0.1);
+
+  --glass-bg: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 18px;
+
+  --aurora-amber: rgba(245, 158, 11, 0.55);
+  --aurora-teal: rgba(45, 212, 191, 0.45);
+  --aurora-rose: rgba(251, 113, 133, 0.4);
+  --aurora-opacity: 1;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+    color: var(--fg);
+  }
+
+  /* Slim themed scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--muted) 40%, transparent);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  /* Frosted glass surface */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  }
+
+  /* Accent glow halo */
+  .glow {
+    box-shadow:
+      0 0 0 1px var(--glass-border),
+      0 18px 50px -20px color-mix(in srgb, var(--accent-glow) 65%, transparent);
+  }
+
+  /* Gradient text for headline accents */
+  .text-gradient {
+    background-image: linear-gradient(
+      120deg,
+      var(--accent) 0%,
+      var(--accent-2) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Animated gradient border on hover (used by project cards) */
+  .card-hover {
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    box-shadow: 0 24px 60px -28px color-mix(in srgb, var(--accent-glow) 70%, transparent);
+  }
+}
+
+/* Scroll-reveal helper (toggled by the Reveal client component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Aurora blob drift */
+@keyframes aurora-1 {
+  0%,
+  100% {
+    transform: translate(-12%, -8%) scale(1);
+  }
+  50% {
+    transform: translate(10%, 12%) scale(1.25);
+  }
+}
+@keyframes aurora-2 {
+  0%,
+  100% {
+    transform: translate(15%, -10%) scale(1.1);
+  }
+  50% {
+    transform: translate(-12%, 14%) scale(0.9);
+  }
+}
+@keyframes aurora-3 {
+  0%,
+  100% {
+    transform: translate(-8%, 10%) scale(0.95);
+  }
+  50% {
+    transform: translate(12%, -12%) scale(1.2);
+  }
+}
