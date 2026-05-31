@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Tailwind v4 CSS-first theme. These tokens replace the old tailwind.config.js
+   `theme.extend`. Each --color-* / --font-* automatically generates the matching
+   utilities (e.g. bg-primary-color, text-secondary-color, font-cursive). */
+@theme {
+    --color-primary-color: #0a192f;
+    --color-primary-color-100: #102038;
+    --color-secondary-color: #ffcb14;
+    --color-light-color: #e7e7e7;
+    --color-dark-color: #989898;
+    --color-darkest-color: #787878;
+
+    --font-nunito: var(--font-nunito-loaded), sans-serif;
+    --font-monospace: var(--font-mono-loaded), monospace;
+    --font-cursive: var(--font-cursive-loaded), cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Offset in-page anchor jumps so the fixed header doesn't cover section tops. */
+    scroll-padding-top: 5rem;
+}
+
+body {
+    background-color: var(--color-primary-color);
+}
