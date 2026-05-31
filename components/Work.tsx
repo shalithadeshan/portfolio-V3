@@ -15,6 +15,30 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    title: "NetPulse",
+    company: "Cube360",
+    description:
+      "A React Native (Expo) mobile app for running internet speed tests and capturing device, network and location context — shipped as two operator-branded APKs (Dialog & Airtel) from a single codebase.",
+    tech: ["React Native", "Expo", "TypeScript", "Apps Script"],
+    image: "/work/netpulse.png",
+  },
+  {
+    title: "Flower — E-Commerce Storefront",
+    company: "Cube360",
+    description:
+      "A modern e-commerce storefront with product catalog, cart, checkout, payments and wholesale ordering — built on the Next.js App Router with Redux Toolkit and GSAP-driven motion.",
+    tech: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "GSAP"],
+    image: "/work/flower.png",
+  },
+  {
+    title: "FLMS — Point-of-Sale System",
+    company: "Cube360",
+    description:
+      "A full-stack point-of-sale system — an Angular 17 frontend (NgRx, NgZorro) on a .NET 8 clean-architecture backend, with real-time updates over SignalR and Docker-based deployment.",
+    tech: ["Angular", ".NET 8", "NgRx", "SignalR", "Docker"],
+    image: "/work/flms.png",
+  },
+  {
     title: "Vehicle Bidding Management System",
     company: "Cube360",
     description:
@@ -45,6 +69,14 @@ const PROJECTS: Project[] = [
       "An Angular-workspace admin frontend for a Restaurant Management System that cut administrative workload by 30+ hours monthly across operations.",
     tech: ["Angular", "Angular Material", "NgRx"],
     image: "/work/rms-admin.png",
+  },
+  {
+    title: "Credit Card Offers",
+    company: "Personal Project",
+    description:
+      "A platform that aggregates Sri Lankan credit-card offers: a Python/Selenium scraper collects products and merchant promotions from six banks into MySQL, and a Laravel 12 frontend lets users browse, filter and compare cards side by side.",
+    tech: ["Laravel", "PHP", "Python", "Selenium", "MySQL"],
+    image: "/work/credit-card.png",
   },
   {
     title: "Sri Lanka Covid-19 Dashboard",
