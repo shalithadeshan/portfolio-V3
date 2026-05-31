@@ -39,6 +39,8 @@
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-border: rgba(21, 23, 28, 0.08);
   --glass-blur: 16px;
+  /* More opaque surface for fixed nav bars so scrolling content stays readable */
+  --glass-nav-bg: rgba(242, 240, 232, 0.88);
 
   --aurora-amber: rgba(245, 158, 11, 0.55);
   --aurora-teal: rgba(20, 184, 166, 0.4);
@@ -59,6 +61,7 @@
   --glass-bg: rgba(255, 255, 255, 0.045);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: 18px;
+  --glass-nav-bg: rgba(10, 15, 28, 0.85);
 
   --aurora-amber: rgba(245, 158, 11, 0.55);
   --aurora-teal: rgba(45, 212, 191, 0.45);
@@ -101,6 +104,15 @@
   /* Frosted glass surface */
   .glass {
     background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  }
+
+  /* More opaque frosted surface for fixed nav bars (keeps text readable
+     over scrolling content). */
+  .glass-nav {
+    background: var(--glass-nav-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(var(--glass-blur)) saturate(140%);
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);

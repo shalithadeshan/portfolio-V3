@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+
+const INITIAL_COUNT = 4;
 
 type ProjectLink = { label: string; icon: string; href: string };
 
@@ -101,6 +106,12 @@ const PROJECTS: Project[] = [
 ];
 
 export default function Work() {
+  const [expanded, setExpanded] = useState(false);
+  const visibleProjects = expanded
+    ? PROJECTS
+    : PROJECTS.slice(0, INITIAL_COUNT);
+  const hiddenCount = PROJECTS.length - INITIAL_COUNT;
+
   return (
     <div className="min-h-screen py-28 md:py-36">
       <Reveal>
@@ -108,7 +119,7 @@ export default function Work() {
       </Reveal>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {PROJECTS.map((project, i) => (
+        {visibleProjects.map((project, i) => (
           <Reveal key={project.title} delay={(i % 2) * 100}>
             <article className="glass card-hover group flex h-full flex-col overflow-hidden rounded-3xl">
               <div className="relative aspect-video w-full overflow-hidden">
@@ -165,6 +176,23 @@ export default function Work() {
           </Reveal>
         ))}
       </div>
+
+      {hiddenCount > 0 && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            className="glass group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors hover:text-accent"
+          >
+            {expanded ? "Show less" : `Show ${hiddenCount} more`}
+            <i
+              className={`las la-angle-down transition-transform duration-300 ${
+                expanded ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

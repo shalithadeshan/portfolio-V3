@@ -11,7 +11,7 @@ const tabs = [
 export default function MobileTabs() {
   return (
     <div className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 md:hidden">
-      <nav className="glass flex items-center gap-1 rounded-full px-2 py-2">
+      <nav className="glass-nav flex items-center gap-1 rounded-full px-2 py-2">
         {tabs.map((tab) => (
           <a
             key={tab.href}
