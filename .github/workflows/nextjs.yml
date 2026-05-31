@@ -35,7 +35,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Setup Pages
@@ -52,8 +52,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
+      # Use `npm install` rather than `npm ci`: the lockfile dedups some dev-only
+      # transitive deps (e.g. picomatch 2.x vs 4.x via eslint-config-next) in a way
+      # that differs across npm versions, which makes `npm ci`'s strict sync check
+      # fail on the runner. `npm install` reconciles instead of erroring.
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build with Next.js
         run: npx --no-install next build
