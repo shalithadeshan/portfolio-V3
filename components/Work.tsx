@@ -25,7 +25,7 @@ const PROJECTS: Project[] = [
     description:
       "A React Native (Expo) mobile app for running internet speed tests and capturing device, network and location context — shipped as two operator-branded APKs (Dialog & Airtel) from a single codebase.",
     tech: ["React Native", "Expo", "TypeScript", "Apps Script"],
-    image: "/work/netpulse.png",
+    image: "/work/netpulse.webp",
   },
   {
     title: "Flower — E-Commerce Storefront",
@@ -81,7 +81,14 @@ const PROJECTS: Project[] = [
     description:
       "A platform that aggregates Sri Lankan credit-card offers: a Python/Selenium scraper collects products and merchant promotions from six banks into MySQL, and a Laravel 12 frontend lets users browse, filter and compare cards side by side.",
     tech: ["Laravel", "PHP", "Python", "Selenium", "MySQL"],
-    image: "/work/credit-card.png",
+    image: "/work/credit-card.webp",
+    links: [
+      {
+        label: "Live",
+        icon: "las la-external-link-alt",
+        href: "https://myfinance.lk/",
+      },
+    ],
   },
   {
     title: "Sri Lanka Covid-19 Dashboard",
